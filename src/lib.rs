@@ -1,3 +1,10 @@
+mod packet;
+
+pub use packet::{
+    fnv1a64, ipv4_payload_from_ethernet, parse_ipv4_tcp, write_ipv4_tcp, FlowKey, Ipv4TcpPacket,
+    ParseError, TcpFlags,
+};
+
 #[cfg(test)]
 mod tests {
     #[test]
