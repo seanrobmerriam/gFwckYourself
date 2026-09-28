@@ -1,3 +1,28 @@
+//! Decision library for a baseline-driven decoy session.
+//!
+//! The host feeds [`Ipv4TcpPacket`] values and a clock. The library returns a
+//! [`ServerAction`] or a [`ClientPacketDecision`]. It does not open sockets.
+//!
+//! ```
+//! use gfwck::{parse_ipv4_tcp, write_ipv4_tcp, Ipv4TcpPacket, TcpFlags};
+//! use std::net::Ipv4Addr;
+//! let packet = Ipv4TcpPacket {
+//!     src: Ipv4Addr::new(203, 0, 113, 10),
+//!     dst: Ipv4Addr::new(198, 51, 100, 8),
+//!     ttl: 52,
+//!     identification: 1,
+//!     src_port: 40000,
+//!     dst_port: 443,
+//!     seq: 1,
+//!     ack: 0,
+//!     flags: TcpFlags { fin: false, syn: true, rst: false, psh: false, ack: false },
+//!     window: 64240,
+//!     payload: Vec::new(),
+//! };
+//! let parsed = parse_ipv4_tcp(&write_ipv4_tcp(&packet).unwrap()).unwrap();
+//! assert_eq!(parsed.ttl, 52);
+//! ```
+
 mod anomaly;
 mod baseline;
 mod client;
