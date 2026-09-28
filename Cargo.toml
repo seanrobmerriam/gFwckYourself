@@ -1,0 +1,10 @@
+[package]
+name = "gfwck"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Decision library for baseline-driven decoy sessions"
+
+[dependencies]
+chrono = "0.4.39"
+rand = "0.8"
