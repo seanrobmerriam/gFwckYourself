@@ -4,6 +4,7 @@ mod decoy;
 mod fallback;
 mod packet;
 mod probe;
+mod server;
 
 pub use anomaly::{screen, Anomaly, AnomalyConfig, AnomalyTracker, FrameVerdict};
 pub use baseline::{BaselineCollector, BaselineConfig, BaselineStatus, RouteProfile, Sample};
@@ -14,6 +15,7 @@ pub use packet::{
     ParseError, TcpFlags,
 };
 pub use probe::{subnet_relation, ProbeConfig, ProbeMonitor, ProbeVerdict, SubnetRelation};
+pub use server::{ArrivalKind, HandshakeProof, ServerAction, ServerConfig, ServerEngine};
 
 #[cfg(test)]
 mod tests {
