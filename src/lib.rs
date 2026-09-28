@@ -1,5 +1,6 @@
 mod anomaly;
 mod baseline;
+mod client;
 mod decoy;
 mod fallback;
 mod packet;
@@ -8,6 +9,7 @@ mod server;
 
 pub use anomaly::{screen, Anomaly, AnomalyConfig, AnomalyTracker, FrameVerdict};
 pub use baseline::{BaselineCollector, BaselineConfig, BaselineStatus, RouteProfile, Sample};
+pub use client::{ClientConfig, ClientEngine, ClientPacketDecision, ClientPayloadDecision};
 pub use decoy::{DecoyGenerator, DecoyProfile, HttpMessage};
 pub use fallback::{FallbackDirective, HeaderCarrier};
 pub use packet::{
